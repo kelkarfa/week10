@@ -6,56 +6,43 @@ body {
   background-color:lightblue;
 }
 
-p {  
-  color:Red;
-  font-size:30px;
-  font-family:helvetica, arial, sans-serif;
-  font-weight:bolder;
-  }
 
-.text {
-   display:block; 
+.cloud {
+  display:block; 
   position:absolute;
-  padding:10px;  
-  animation-name:change-position;
-  animation-iteration-count:infinite;
-  animation-timing-function: ease-in-out;
-  animation-duration:5s;
-  text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
-}
-
-@keyframes change-position {
-  0%{transform: translate(0px, 0px);
-    text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
-    background-color: green;
-  }
-  15%{letter-spacing:5px;
-    background-color: yellow;
-  }
-  25%{ letter-spacing:0; background-color: orange;
-   transform:translate(73vw, 50px) scaleX(1.0); }
-  50%{transform:translate(73vw, 83vh) ;
-  letter-spacing:0px;
-  background-color: blue}
-  65%{letter-spacing:5px;
-    background-color: yellow}
-  75%{letter-spacing:0px;
-    background-color: orange;
-    transform:translate(0vw, 83vh);
-  }
-  100%{    transform: translate(0px, 0px);}
-}
-
-.cloud{
+  padding:10px;
   height:150px;
-  width:280px;
+  width:285px;
   border-radius:50%;
   background:white;
   border:5px solid white;
   margin-left:200px;
-  position:relative;
   z-index:8;
+  animation-name:change-position;
+  animation-iteration-count:infinite;
+  animation-timing-function:step-start;
+  animation-play-state:running;
+  animation-fill-mode: forwards;
+  animation-delay: 5s;
+  animation-duration:20s;
+  animation-direction: normal;
+  
+}
+
+@keyframes change-position {
+  0%{
+    transform: translate(0px, 0px);
+    }
+  
+  50%{
+    transform:translate(23vw, 0vh) ;
   }
+ 
+  100%{transform: translate(0px, 0px);
+  }
+}
+
+
 .cloud:before{
   content:"";
   position:absolute;
@@ -90,7 +77,98 @@ p {
   background: yellow;
   border-radius: 50%;
   position: absolute;
-  left: 550px;
-  top: 10px;
+  left: 750px;
+  top: 15px;
   box-shadow: 0 0 2px 2px white, 0 0 4px 4px yellow;
+  animation-name: sunset;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; 
+  animation-direction: normal;
+  animation-delay: 5s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  animation-duration: 10s;
+}
+@keyframes sunset {
+
+  0% {
+    transform: translate(0px, 0px );
+    background: #ffd630;
+    }
+  
+  50% {
+    transform: translate(0px, 530px);
+    background: #f00;
+    }
+
+  100% {
+    transform: translate(0px, 0px);
+    background: #ffd630;
+   }
+
+}
+
+.tree {
+ left: 0px;
+ top: 430px;
+ position: relative;
+ background-color: green;
+ animation-name: sleep;
+ animation-duration: 10s;
+ animation-timing-function: linear;
+ animation-iteration-count: infinite;
+ animation-delay: 2s;
+
+}
+
+@keyframes sleep {
+  0% {
+    background-color:green;
+  }
+  25% {background-color: green;}
+  50% {
+    background-color:green;
+  }
+  75% {
+    background-color: black;
+  }
+  100% {
+    background-color: green;
+  }
+}
+
+
+.sky {
+  animation-name: night;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; 
+  animation-direction: normal;
+  animation-delay: 0s;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+
+@keyframes night {
+
+  0% {
+    background-color:#6293e5;
+  }
+  25%{background-color:#6293e5 ;}
+  50% {
+    background-color: #6293e5;
+  }
+
+  75% {
+    background-color:#6293e5;
+  }
+
+  100% {
+    background-color: #525252;
+  }
+
+}
+#mon {
+  float: right;
 }
